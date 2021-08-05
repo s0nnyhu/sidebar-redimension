@@ -1,0 +1,82 @@
+body, html {
+    margin: 0%;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif;
+    color: rgba(0, 0, 0, 0.6);
+    --sidebar: 300px;
+}
+.layout {
+    --sidebarClamped : clamp(250px, var(--sidebar), 50vw);
+    display: grid;
+    grid-template-columns: var(--sidebarClamped) 1fr;
+    height: 100%;
+}
+
+.logo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    text-align: center;
+    margin: 1rem 0;
+    color: #fff;
+}
+
+.sidebar {
+    position: relative;
+    background-color: rgb(36,99,57);
+    box-shadow: inset -2px 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar a {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    color: #fff;
+    padding: 1em 0.5em;
+    text-decoration: none;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+}
+
+.sidebar a:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.main {
+    padding: 20px;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #000;
+}
+
+.resizer {
+    position:absolute;
+    top:0;
+    right: -10px;
+    width: 20px;
+    height: 100%;
+    cursor: ew-resize;
+    touch-action: none;
+}
+
+.resizer:after {
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background:coral;
+    transform: scale(0);
+    transition: .3s;
+    opacity: 0;
+}
+
+.resizer:hover::after {
+    opacity:1;
+    transform: scaleX(0.2);
+    background: coral;
+}
